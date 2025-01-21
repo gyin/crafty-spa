@@ -1,10 +1,9 @@
-import { createStore } from "@/lib/create-store";
+import { createStore } from "@/lib/createStore";
 import { expect, describe, test } from "vitest";
 import { getAuthUserTimeline } from "../usecases/get-auth-user-timeline.usecase";
 import { FakeTimelineGateway } from "../infra/fake-timeline.gateway";
 import { FakeAuthGateway } from "@/lib/auth/infra/fake-auth.gateway";
 import { selectMessage } from "../slices/messages.slice";
-import { selectUserTimeline } from "../slices/timelines.slice";
 
 describe("Feature: Retrieving authenticated user's timeline", () => {
     test("Example: Alice is authenticated and can see her timeline", async () => {
@@ -77,10 +76,7 @@ function thenTheReceivedTimelineShouldBe(expectedTimeLine: {
         publishedAt: string;
     }[],
 }) {
-    const authUserTimeline = selectUserTimeline(
-    expectedTimeLine.id,
-    store.getState()
-  );
+    const authUserTimeline = store.getState().entities[expectedTimeLine.id];
 
     expect(authUserTimeline).toEqual({
         id: expectedTimeLine.id,

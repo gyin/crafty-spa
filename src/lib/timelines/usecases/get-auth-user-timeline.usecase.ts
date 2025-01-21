@@ -1,5 +1,3 @@
-import { timelineGateway } from "../infra/fake-timeline.gateway";
-import { authGateway } from "@/lib/auth/infra/fake-auth.gateway";
 import { createAppAsyncThunk } from "../../create-app-thunk";
 
 export const getAuthUserTimeline = createAppAsyncThunk("timelines/getAuthUserTimeline",
@@ -10,4 +8,4 @@ export const getAuthUserTimeline = createAppAsyncThunk("timelines/getAuthUserTim
         
         return timeline;
     }
-)
+);

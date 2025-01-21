@@ -3,7 +3,9 @@ import { GetUserTimelineResponse, TimelineGateway } from "../model/timeline.gate
 export class FakeTimelineGateway implements TimelineGateway {
     timelinesByUser: Map<string, {
         user: string,
+        id: string,
         messages: {
+            id: string,
             text: string;
             author: string;
             publishedAt: string;
